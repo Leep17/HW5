@@ -12,7 +12,7 @@ public class PerishableParcel extends Parcel{
         return getWeight()*basecostPerish;
     }
 
-    private boolean isExpired(int currentDay){
+    public boolean isExpired(int currentDay){
         if (getSendDay()+timeToLive>=currentDay){
             return false;
         }else{

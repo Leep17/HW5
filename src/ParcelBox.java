@@ -13,15 +13,16 @@ public class ParcelBox <T extends Parcel>{
         return parcelsBox;
     }
 
-    public void addParcel(T parsel){
+    public String addParcel(T parsel){
         int totalWeight = 0;
         for(T parsbox : parcelsBox){
             totalWeight += parsbox.getWeight();
         }
         if(totalWeight + parsel.getWeight()<maxweight){
             parcelsBox.add(parsel);
+            return null;
         }else {
-            System.out.println("Вес посылки превышает вес коробки!");
+            return "Вес посылки превышает вес коробки!";
         }
     }
 }

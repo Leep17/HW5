@@ -84,21 +84,30 @@ public class DeliveryApp {
             switch (typeChoice) {
                 case 1:
                     StandardParcel parcelSt = new StandardParcel(description, weight, deliveryAddress, sendDay);
-                    allParcels.add(parcelSt);
-                    standardParcelParcelBox.addParcel(parcelSt);
+                    if (standardParcelParcelBox.addParcel(parcelSt) == null){
+                        allParcels.add(parcelSt);
+                    }else{
+                        System.out.println(standardParcelParcelBox.addParcel(parcelSt));
+                    }
                     break;
                 case 2:
                     FragileParcel parcelFr = new FragileParcel(description, weight, deliveryAddress, sendDay);
-                    allParcels.add(parcelFr);
-                    fragileParcels.add(parcelFr);
-                    fragileParcelParcelBox.addParcel(parcelFr);
+                    if (fragileParcelParcelBox.addParcel(parcelFr)==null){
+                        allParcels.add(parcelFr);
+                        fragileParcels.add(parcelFr);
+                    }else{
+                        System.out.println(fragileParcelParcelBox.addParcel(parcelFr));
+                    }
                     break;
                 case 3:
                     System.out.println("Введите срок хранения посылки:");
                     int timeToLive = Integer.parseInt(scanner.nextLine());
                     PerishableParcel parcelPer = new PerishableParcel(description, weight, deliveryAddress, sendDay, timeToLive);
-                    allParcels.add(parcelPer);
-                    perishableParcelParcelBox.addParcel(parcelPer);
+                    if (perishableParcelParcelBox.addParcel(parcelPer)==null){
+                        allParcels.add(parcelPer);
+                    }else{
+                        System.out.println(perishableParcelParcelBox.addParcel(parcelPer));
+                    }
                     break;
                 default:
                     break;
@@ -113,7 +122,7 @@ public class DeliveryApp {
                 System.out.println("Введите новое местоположение:");
                 String newLocation = scanner.nextLine();
                 System.out.println(fragileParcels.get(i).reportStatus(newLocation));
-                return;
+                break;
             }
         }
         System.out.println("Таких пасылок нет!");
@@ -165,5 +174,7 @@ public class DeliveryApp {
         }
         System.out.println(totalCost);
     }
+
+
 
 }
