@@ -1,3 +1,3 @@
 public interface Trackable {
-    public String reportStatus(String newLocation);
+    String reportStatus(String newLocation);
 }

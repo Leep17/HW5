@@ -84,29 +84,29 @@ public class DeliveryApp {
             switch (typeChoice) {
                 case 1:
                     StandardParcel parcelSt = new StandardParcel(description, weight, deliveryAddress, sendDay);
-                    if (standardParcelParcelBox.addParcel(parcelSt) == null){
+                    if (standardParcelParcelBox.addParcel(parcelSt)){
                         allParcels.add(parcelSt);
                     }else{
-                        System.out.println(standardParcelParcelBox.addParcel(parcelSt));
+                        System.out.println("Вес посылки превышает вес коробки!");
                     }
                     break;
                 case 2:
                     FragileParcel parcelFr = new FragileParcel(description, weight, deliveryAddress, sendDay);
-                    if (fragileParcelParcelBox.addParcel(parcelFr)==null){
+                    if (fragileParcelParcelBox.addParcel(parcelFr)){
                         allParcels.add(parcelFr);
                         fragileParcels.add(parcelFr);
                     }else{
-                        System.out.println(fragileParcelParcelBox.addParcel(parcelFr));
+                        System.out.println("Вес посылки превышает вес коробки!");
                     }
                     break;
                 case 3:
                     System.out.println("Введите срок хранения посылки:");
                     int timeToLive = Integer.parseInt(scanner.nextLine());
                     PerishableParcel parcelPer = new PerishableParcel(description, weight, deliveryAddress, sendDay, timeToLive);
-                    if (perishableParcelParcelBox.addParcel(parcelPer)==null){
+                    if (perishableParcelParcelBox.addParcel(parcelPer)){
                         allParcels.add(parcelPer);
                     }else{
-                        System.out.println(perishableParcelParcelBox.addParcel(parcelPer));
+                        System.out.println("Вес посылки превышает вес коробки!");
                     }
                     break;
                 default:

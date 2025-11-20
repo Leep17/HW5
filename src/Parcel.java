@@ -4,11 +4,6 @@ public abstract class Parcel {
     private String deliveryAddress;
     private int sendDay;
 
-    public static final int basecostStandart = 2;
-    public static final int basecostFragile = 3;
-    public static final int basecostPerish = 4;
-
-
     public Parcel(String description, int weight, String deliveryAddress, int sendDay) {
         this.description = description;
         this.weight = weight;

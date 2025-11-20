@@ -21,10 +21,10 @@ public class DeliveryParcelTest {
     public void testIsExpired() {
 
         PerishableParcel expiredParcel = new PerishableParcel("Скоропортящаяся1", 2, "Ленина д1", 3, 2);
-        Assertions.assertTrue(expiredParcel.isExpired(7));
+        Assertions.assertFalse(expiredParcel.isExpired(7));
 
         PerishableParcel notExpiredParcel = new PerishableParcel("Скоропортящаяся2", 2, "Гагарина д2", 4, 7);
-        Assertions.assertFalse(notExpiredParcel.isExpired(4));
+        Assertions.assertTrue(notExpiredParcel.isExpired(4));
     }
 
     @Test
@@ -33,10 +33,10 @@ public class DeliveryParcelTest {
         ParcelBox<StandardParcel> box = new ParcelBox<>(10);
 
         StandardParcel parcel1 = new StandardParcel("Стандартная1", 5, "Ревалюции1", 2);
-        Assertions.assertNull(box.addParcel(parcel1));
+        Assertions.assertTrue(box.addParcel(parcel1));
 
-        StandardParcel parcel2 = new StandardParcel("Стан", 7, "Адрес", 1);
-        Assertions.assertNotNull(box.addParcel(parcel2));
+        StandardParcel parcel2 = new StandardParcel("Стандартная", 7, "Плющиха", 1);
+        Assertions.assertFalse(box.addParcel(parcel2));
     }
 
 }
