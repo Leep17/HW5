@@ -29,7 +29,7 @@ public abstract class Parcel {
 
 
     public void deliver(){
-        System.out.println("Посылка <<"+description+">> доставлена по адресу" + deliveryAddress);
+        System.out.println("Посылка <<"+description+">> доставлена по адресу: " + deliveryAddress);
     }
 
     public abstract int calculateDeliveryCost();
